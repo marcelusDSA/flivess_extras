@@ -1,0 +1,41 @@
+<ion-view>
+<ion-content>
+  <br><br>
+  <div class="bar bar-header bar-royal">
+    <h1 class="title">Near routes</h1>
+    <label class="color-white">Range: {{range}} m</label>
+  </div>
+
+ <ion-list class="text-center uppercase">
+<div ng-show="noTracks" class="text-center">
+  <br>
+  <br>
+  <br>
+  <label class="color-gray" >No near tracks... <br>(be sure your GPS is on)</label>
+</div>
+
+  <div ng-if="routes !=''" ng-repeat="route in routes  | orderBy:'created':true" class="list card">
+
+    <p class="item text-center">
+      <a style="color: #0a9dc7" am-time-ago="route.created"></a><br>
+      <label>by: {{route.username}}</label>
+    </p>
+
+    <div ng-click="trackdetail(route._id)" class="item item-body">
+      <img class="full-image" src="{{route.img}}">
+
+      <p class="text-center">
+        <a href="#" class="subdued text-left bold">{{route.distance}}  &nbsp; &#9679;</a>
+        <a href="#" class="subdued text-center bold">{{route.time}}  &nbsp; &#9679;</a>
+        <a href="#" class="subdued text-right bold">{{route.avg_speed|number:3}} km/h</a>
+      </p>
+    </div>
+
+  </div>
+
+
+
+</ion-list>
+</ion-content>
+
+</ion-view>

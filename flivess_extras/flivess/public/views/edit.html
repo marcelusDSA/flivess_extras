@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="../css/login/normalize.css">
+    <link rel="stylesheet" href="../css/login/style.css">
+
+</head>
+
+<body>
+<div class="form">
+    <div id="login">
+        <h1>Register</h1>
+        <h1>Edit your username, someone have this username...</h1>
+        <form>
+            <div class="field-wrap">
+                <input type="text" placeholder="Username*" required ng-model="user.username">
+            </div>
+            <div class="field-wrap">
+                <input disabled type="text" placeholder="Fullname*" required ng-model="usuario.fullname">
+            </div>
+            <div class="field-wrap">
+                <input disabled type="text" placeholder="Email*" required ng-model="usuario.email">
+            </div>
+            <button type="button" class="button button-block" ng-click="register()">Register</button>
+            <div ng-show="alertReg" ng-init="alert.message=''" ng-class="{'alert-danger': true, 'alert-dismissable': closeable}">
+                <a class="close" ng-click="closeAlert()">&times;</a>
+                <p>{{alert.message}}</p>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

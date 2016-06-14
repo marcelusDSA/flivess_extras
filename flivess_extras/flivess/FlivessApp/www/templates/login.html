@@ -1,0 +1,37 @@
+<ion-view hide-nav-bar="true" view-title="Flivess" name="login-view">
+  <ion-content style="background: url(img/login.jpg) no-repeat center; background-size:cover; background-attachment:fixed;">
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    <br>
+    <div class="text-center"><img src="img/logo1.png"></div>
+    <br>
+
+
+    <div class="list list-inset">
+      <label class="item item-input">
+        <input  type="text" placeholder="Username" ng-model="data.username">
+      </label>
+      <label class="item item-input">
+        <input type="password" placeholder="Password" ng-model="data.password">
+      </label>
+    </div>
+<div class="text-center">
+  <button style="width: 90%" class="button  button-calm" ng-click="login()">Login</button>
+  <br>
+  <br>
+  <button style="width: 80%" class="button  button-positive" ng-click="loginFB()"> <i class="icon ion-social-facebook"></i></button>
+  <br>
+  <hr>
+  <br>
+
+  <label style="color: whitesmoke" class="text-center">Don't have an account yet?</label>
+  <button style="width: 80%" class="button  button-stable" ng-click="redir()">New account</button>
+
+</div>
+
+
+    </ion-content>
+</ion-view>

@@ -1,0 +1,53 @@
+<ion-view title="Account">
+  <ion-nav-buttons side="left">
+    <button ng-click="toSearch()" menu-toggle="left" class="button button-icon icon ion-ios-search-strong"></button>
+  </ion-nav-buttons>
+
+  <ion-nav-buttons side="right">
+    <button ng-click="toTrack()" class="button button-dark icon ion-ios-plus-outline"></button>
+  </ion-nav-buttons>
+
+  <ion-content class="padding">
+    <div class="list">
+
+      <a ng-click="loading2();myprofile();" class="item item-icon-left">
+        <i class="icon ion-ios-body"></i>
+        My profile
+      </a>
+
+      <a ng-click="loading();mytracks();" class="item item-icon-left">
+        <i class="icon ion-ios-navigate"></i>
+        My tracks
+
+      </a>
+
+      <a ng-click="requests()" class="item item-icon-left">
+        <i class="icon ion-person-stalker"></i>
+        Friends Requests
+        <span class="badge badge-assertive">{{nrequests}}</span>
+      </a>
+
+      <a ng-click="friends()" class="item item-icon-left">
+        <i class="icon ion-person-stalker" ></i>
+        Friends
+        <span class="badge badge-assertive">{{nfriends}}</span>
+      </a>
+
+      <a class="item item-icon-left" href="#">
+        <i class="icon ion-ios-gear"></i>
+        Settings
+
+      </a>
+      <br>
+      <br>
+
+      <a class="item item-icon-left" ng-click="logout()">
+        <i style="color: red;" class="icon ion-ios-close"></i>
+        Log out
+
+      </a>
+
+    </div>
+
+  </ion-content>
+</ion-view>

@@ -1,0 +1,33 @@
+<ion-header-bar class="bar-subheader item-input-inset" side="left">
+  <button class="button button-icon icon ion-ios-arrow-left" ng-click="goback()">
+  </button>
+  <i class="text-center button icon button-icon ion-ios-people"></i>&nbsp;<h2 class="font-130 text-center">Following</h2>
+</ion-header-bar>
+
+<ion-content>
+
+<div class="text-center"><label class="text-center color-gray" ng-show="noAct">No activity...</label></div>
+
+
+  <div class="list">
+
+    <a ng-repeat="user in friends" class="item item-avatar" >
+      <img ng-click="profile(user.friend.username)" src="{{user.friend.imgurl}}">
+
+      <div class="row">
+        <div class="col col-80"><p>{{user.friend.fullname}}</p><h2>&nbsp;{{user.friend.username}}</h2></div>
+
+        <div ng-show="!buttons[$index].data && userLogged.username!=user.friend.username" class="col col-20 text-right"><button ng-click="loading();follow(user.friend.username);" class="button button-small button-balanced text-right">
+          Follow
+        </button></div>
+
+        <div ng-show="buttons[$index].data && userLogged.username!=user.friend.username" class="col col-20 text-right"><button ng-click="unfollow(user.friend.username)" class="button button-small button-stable text-right">
+          Unfollow
+        </button></div>
+
+      </div>
+
+    </a>
+  </div>
+</ion-content>
+

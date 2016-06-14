@@ -1,0 +1,30 @@
+<ion-view title="Runners">
+  <ion-nav-buttons side="left">
+    <button ng-click="goback()" menu-toggle="left"  class="button icon-left ion-arrow-left-c button-clear button-dark"></button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="secondary">
+    <button class="button button-icon icon ion-ios-search-strong" ng-click="showFilterBar()">
+    </button>
+  </ion-nav-buttons>
+  <ion-content class="padding">
+    <ion-refresher pulling-icon="ion-arrow-down-b" on-refresh="refreshItems()">
+    </ion-refresher>
+    <ion-list >
+      <ion-item menu-close="" class="item-thumbnail-left" collection-repeat="user in items" ng-click="profile(user)">
+        <img src="{{user.imgurl}}">
+        <div class="row" class="item-borderless">
+          <div class="col col-50">
+            <h2>{{user.fullname}}</h2>
+            <p>{{user.username}} &bull; {{user.email}}</p>
+         <!--   <img style="float:left;margin-right:5px;"src="{{player.imageOnline}}">-->
+            <!--<p>{{player.textOnline}}</p>-->
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+
+    <div ng-if="items !== undefined && !items.length" class="no-results">
+      <p>No hay resultados</p>
+    </div>
+  </ion-content>
+</ion-view>

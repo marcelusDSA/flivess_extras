@@ -1,0 +1,86 @@
+
+<ion-view view-title="Profile Runner">
+  <ion-nav-buttons side="left">
+    <button ng-click="goback2()" menu-toggle="left"  class="button icon-left ion-arrow-left-c button-clear button-dark"></button>
+  </ion-nav-buttons>
+
+  <ion-content overflow-scroll="true">
+
+    <div class="profile-container">
+
+      <img ng-src="{{friend.imgurl}}" class="profile-image" width="170">
+      <img
+        ng-if="userLogged.username===friend.username"
+        ng-click="editProfile();loading();"
+        ng-src="img/edit.png"
+        class="profile-edit"
+        width="50">
+      <h5 class="level">Level {{friend.level}}</h5>
+    </div>
+
+    <div class="card">
+      <div class="item item-text-wrap">
+        <div class="row">
+          <div ng-click="goTracksArea()" class="col col-33 text-center"><b>Tracks</b><br>{{ntracks}}</div>
+          <div ng-click="toFollowing(friend.username)" class="col col-33 text-center"><b>Following</b><br>{{nfollowing}}</div>
+          <div ng-click="toFollowers(friend.username)" class="col col-33 text-center"><b>Followers</b><br>{{nfollowers}}</div>
+        </div>
+
+        <div class="row">
+
+          <div ng-show="userLogged.username!=friend.username && isfriend == false" class="col text-center"><button ng-click="follow()" class="button button-small button-balanced">
+            Follow
+          </button>
+          </div>
+
+          <div ng-show="userLogged.username!=friend.username && isfriend == true"  class="col text-center"><button ng-click="unfollow()" class="button button-small button-stable">
+            Unfollow
+          </button>
+          </div>
+
+        </div>
+        <hr>
+        <ion-item class="item-icon-right">
+          <h2 class="font-130 text-center">{{friend.fullname}}</h2>
+          <p class="color-gray text-center">{{friend.username}}</p>
+          <h4 class="text-center">{{friend.email}}</h4>
+          <i ng-show="userLogged.username!=friend.username" class="icon ion-android-more-vertical color-red bold" ng-click="showActionSheet()"></i>
+          <p ng-if="friend.sex || friend.height || friend.weight" class="color-gray text-center">{{friend.sex}}, {{friend.height}} cm {{friend.weight}} kg</p>
+          <p class="color-gray text-center">Barcelona</p>
+        </ion-item>
+        <hr>
+
+        <ion-list id="trackArea"  class="text-center uppercase">
+          <div style="top: 30px;" ng-if="routes !=''"><i class="ion-ios-pulse"></i>  Activity  <i class="ion-ios-pulse"></i></div>
+          <hr>
+
+          <br>
+
+          <label ng-show="noTracks">No tracks available...</label>
+          <div ng-if="routes !=''" ng-repeat="route in routes  | orderBy:'created':true" class="list card">
+
+            <p class="item text-center">
+              <a style="color: #0a9dc7" am-time-ago="route.created"></a>
+            </p>
+
+            <div class="item item-body">
+              <img ng-click="trackdetail(route._id)" class="full-image" src="{{route.img}}">
+
+              <p class="text-center">
+                <a href="#" class="subdued text-left bold">{{route.distance}}  &nbsp; &#9679;</a>
+                <a href="#" class="subdued text-center bold">{{route.time}}  &nbsp; &#9679;</a>
+                <a href="#" class="subdued text-right bold">{{route.avg_speed|number:3}} km/h</a>
+              </p>
+            </div>
+
+          </div>
+
+
+
+        </ion-list>
+      </div>
+
+    </div>
+
+  </ion-content>
+</ion-view>

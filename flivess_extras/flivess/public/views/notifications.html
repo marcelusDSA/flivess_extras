@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Notifications</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div class="container">
+    <a class="list-group-item active">
+        <h4 class="list-group-item-heading">NOTIFICATIONS</h4>
+    </a>
+    <div class="list-group" ng-repeat="notify in notifications">
+        <a class="list-group-item" href="#/profile/{{notify.actionusername}}" ng-if="notify.type==1">
+                <h4 class="item-title">{{notify.date|date:"dd/MM/yyyy 'at' h:mma"}}</h4>
+                <p><i class="fa fa-user-plus" aria-hidden="true"></i> {{notify.actionusername}} {{notify.text}}</p>
+        </a>
+        <a class="list-group-item" href="#/messages" ng-if="notify.type==0">
+                <h4 class="item-title">{{notify.date|date:"dd/MM/yyyy 'at' h:mma"}}</h4>
+                <p><i class="fa fa-envelope" aria-hidden="true"></i> {{notify.actionusername}} {{notify.text}}</p>
+        </a>
+    </div>
+</div>
+
+</body>
+</html>

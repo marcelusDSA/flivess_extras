@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html ng-app="Flivess">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="css/nav/style.css">
+    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+
+
+    <title>Flivess</title>
+</head>
+<body ng-controller="indexCtl">
+
+    <nav class="navbar navbar-default navbar-fixed-top transparent navbar-inverse" ng-show="isLogged">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand">Flivess</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="#/home" ><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                <li><a href="#/friends" ><span class="fa fa-users"></span> Following</a></li>
+                <li><a href="#/messages" ><span class="glyphicon glyphicon-envelope"></span> Messages</a></li>
+                <li><a href="#/historical" ><span class="glyphicon glyphicon-th-list"></span> My tracks</a></li>
+
+                <form class="navbar-form navbar-left" role="search" >
+
+
+                        <div  class='container-fluid typeahead-demo' ng-controller="indexCtl">
+
+                            <input type="text" placeholder="Search users..." ng-model="userSelected" typeahead-on-select="onSelect($item, $model, $label)" ng-model-options="modelOptions"  uib-typeahead="user for user in users | filter:{username:$viewValue, fullname:$viewValue} | limitTo:5" typeahead-template-url="/uib/template/typeahead/typeahead-match.html" typeahead-popup-template-url="/uib/template/typeahead/typeahead-popup.html" class="form-control">
+                        <!--<input type="text" ng-model="selectedUser" typeahead="user as user.username for user in users | filter:$viewValue | limitTo:3" class="form-control" placeholder="Search friends...">-->
+                        </div>
+                   <!-- <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>-->
+                </form>
+
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+
+                <li >
+                    <a id="dLabel" role="button" data-toggle="dropdown" data-target="#" ng-init="userloggedInfo" ng-click="clickNot(userlog.username)">
+                        <i class="glyphicon glyphicon-globe"></i>
+                        <span class="noti_bubble">{{notlength}}</span>
+                    </a>
+
+                        <ul class="dropdown-menu notifications" role="menu" aria-labelledby="dLabel">
+
+                            <div class="notification-heading" >
+                                <h4 class="menu-title">Notifications</h4>
+                            </div>
+                            <li class="divider"></li>
+                            <div class="notifications-wrapper" ng-repeat="notify in notification" >
+
+                                <a class="content" href="#/profile/{{notify.actionusername}}" ng-if="notify.type==1">
+                                    <div class="notification-item">
+                                        <h4 class="item-title">{{notify.date|date:"dd/MM/yyyy 'at' h:mma"}}</h4>
+                                        <p><i class="fa fa-user-plus" aria-hidden="true"></i> {{notify.actionusername}} {{notify.text}}</p>
+                                    </div>
+
+                                </a>
+                                <a class="content" href="#/messages" ng-if="notify.type==0">
+
+                                    <div class="notification-item">
+                                        <h4 class="item-title">{{notify.date|date:"dd/MM/yyyy 'at' h:mma"}}</h4>
+                                        <p><i class="fa fa-envelope" aria-hidden="true"></i> {{notify.actionusername}} {{notify.text}}</p>
+                                    </div>
+
+                                </a>
+                            </div>
+                            <li class="divider"></li>
+                            <div class="notification-footer" style="text-align: center;">
+                                <a class="btn menu-title" href="#/notifications">View all<i class="glyphicon glyphicon-circle-arrow-right"></i></a>
+                            </div>
+                        </ul>
+                </li>
+
+                <li><a href="" ng-init="userloggedInfo" ng-click="perfil(userlog.username)"><span class="fa fa-cogs"></span> {{userlog.username}}</a></li>
+                <li><a href="#/" ng-click="logOut()"><span class="glyphicon glyphicon-log-in"></span> Log Out</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <nav class="navbar transparent2 navbar-inverse navbar-fixed-bottom" ng-show="!isLogged">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#/about" ><span class=""></span> About</a></li>
+                <li><a href="#/contact" ><span class=""></span> Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div style="margin-top: 70px;">
+        <div ng-view></div>
+    </div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBBboqOwLt3WKb7eod6a9MbVChHGF64Zs"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-modal-service/dst/angular-modal-service.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
+    <script src="bower_components/angular-google-chart/ng-google-chart.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/angular-material/angular-material.min.js"></script>
+    <script src="bower_components/angularjs-geolocation/dist/angularjs-geolocation.min.js"></script>
+    <script src="bower_components/angular-confirm-modal/angular-confirm.min.js"></script>
+    <script src="bower_components/ng-img-crop/compile/unminified/ng-img-crop.js"></script>
+    <script src="bower_components/socket.io-client/socket.io.js"></script>
+    <script src="bower_components/angular-socket-io/socket.js"></script>
+
+
+    <script src="routes.js"></script>
+    <script src="controllers/loginCtl.js"></script>
+    <script src="controllers/homeFacebookCtl.js"></script>
+    <script src="controllers/homeCtl.js"></script>
+    <script src="controllers/messagesCtl.js"></script>
+    <script src="controllers/followingCtl.js"></script>
+    <script src="controllers/profileEditCtl.js"></script>
+    <script src="controllers/profileCtl.js"></script>
+    <script src="controllers/modalMessageCtl.js"></script>
+    <script src="controllers/indexCtl.js"></script>
+    <script src="controllers/raceDetailsCtl.js"></script>
+    <script src="controllers/historicalCtl.js"></script>
+    <script src="controllers/notificationsCtl.js"></script>
+    <script src="controllers/editPhotoCtl.js"></script>
+</body>
+</html>

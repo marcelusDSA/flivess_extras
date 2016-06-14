@@ -1,0 +1,13 @@
+<!--
+<a>
+
+    <span ng-bind-html="match.label | uibTypeaheadHighlight:query"></span>&middot;
+
+</a>
+-->
+<a>
+    <span style="display:block; cursor:pointer;" ng-bind-html="match.label.fullname | uibTypeaheadHighlight:query"></span>
+    <span style="cursor:pointer;" ng-bind-html="match.label.username | uibTypeaheadHighlight:query"></span> &middot;
+    <span style="cursor:pointer;"ng-bind-html="match.label.email| uibTypeaheadHighlight:query"></span>
+
+</a>

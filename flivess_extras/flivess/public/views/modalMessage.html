@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ModalMessage</title>
+</head>
+<body>
+<style>
+    .modal-center {
+        position: absolute;
+        top:50%;
+        -ms-transform: translate(0,-50%);
+        -moz-transform: translate(0,-50%);
+        -webkit-transform: translate(0,-50%);
+        transform: translate(0,-50%);
+        width:100%;
+    }
+
+
+</style>
+
+<div class="modal modal-center">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="cancel()" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Send to: {{title}}</h4>
+            </div>
+
+            <form class="form-horizontal" role="form">
+                <br>
+                <div class="form-group">
+                    <div class="col-sm-2"><h4 class="modal-title pull-right">Message: </h4> </div>
+                    <div class="col-sm-8">
+                        <textarea name="InputMessage" id="InputMessage" class="form-control" rows="5" required ng-model="message"></textarea>
+                    </div>
+                    <div class="col-sm-2"></div>
+                </div>
+            </form>
+
+
+            <div class="modal-footer">
+                <button type="button" ng-click="send()" class="btn btn-primary" data-dismiss="modal">Send</button>
+                <button type="button" ng-click="cancel()" class="btn btn-danger">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

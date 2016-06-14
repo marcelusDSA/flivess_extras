@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="col-md-2"></div>
+<div class="panel-group  col-md-8">
+    <div class="text-center">
+    <label  ng-show="noFollowing">Follow users to see their activities...</label>
+    </div>
+    <div ng-repeat="route in routes"></divng-repeat>
+        <div class="panel panel-default">
+            <div class="panel-heading"><strong>{{route.username}}</strong> {{route.title|date:"dd/MM/yyyy 'at' h:mma"}}</div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-7">
+                        <img border="0" ng-src={{route.img}}>
+                    </div>
+                    <div class="col-md-5">
+                        <table class="table table-striped col-md-5">
+                            <tbody>
+                            <tr>
+                                <td>Time</td>
+                                <td>{{route.time}}</td>
+                            </tr>
+                            <tr>
+                                <td>Distance</td>
+                                <td>{{route.distance}}</td>
+
+                            </tr>
+                            <tr>
+                                <td>Average speed</td>
+                                <td>{{route.avg_speed}} min/Km</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <a data-toggle="tooltip" type="button" style="display: block;  float: right;" class="btn btn-lg btn-success" href="#/details/{{route._id}}">Details <span class="glyphicon glyphicon-zoom-in"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div><br><br></div>
+    </div>
+</div>
+<div class="col-md-2"></div>
+</body>
+</html>

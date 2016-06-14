@@ -1,0 +1,59 @@
+
+<html>
+<head>
+    <title>Messages</title>
+</head>
+<body>
+
+
+<div class="container">
+    <div class="text-center">
+    <label ng-show="noMessages">There are no recent conversations...</label>
+    </div>
+    <div class="col-md-3">
+        <div class="list-group">
+            <a href="" ng-click="conversacion(user.username)" class="list-group-item"  ng-repeat="user in users"> {{user.fullname}}</a>
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-8" ng-show="conv">
+
+        <a style="border: 1px solid grey; border-radius: 10px;" href=""  ng-click="profile(usuarioC)" class="list-group-item text-center "><h4>{{usuarioC}}</h4></a>
+
+
+        <div style="position: absolute; top: 70px; bottom: -430px; right: 12px; left: 12px; overflow-y: scroll; border: 1px solid grey; border-radius: 10px;" >
+            <div  class="media msg" ng-repeat="msg in msgs">
+                <a class="pull-left" href="#/profile/{{msg.sender}}">
+                    <img  ng-src="{{getImage(msg.sender)}}"  class="media-object" alt="64x64" style="width: 32px; height: 32px;" >
+                </a>
+                <div class="media-body">
+                    <small class="pull-right time"><i class="fa fa-clock-o"></i> {{msg.createdAt|date:"dd/MM/yyyy 'at' h:mma"}}</small>
+
+                    <h5 class="media-heading">{{msg.sender}}</h5>
+                    <small class="col-lg-10">{{msg.text}}</small>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+
+        <div style="position: fixed; bottom: 0; width: 75%;">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Write a message...</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><input class="form-control" ng-model="message.text"></td>
+                    <td><button class="btn btn-primary" ng-click="sendMessage(usuarioC)">Send</button></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

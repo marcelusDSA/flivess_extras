@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../bower_components/ng-img-crop/compile/unminified/ng-img-crop.css"/>
+    <style>
+        .cropArea {
+            background: #E4E4E4;
+            overflow: hidden;
+            width:500px;
+            height:350px;
+        }
+    </style>
+</head>
+<body>
+<div style="padding-top: 70px; padding-left: 200px">
+    <div class="row">
+        <div class="col-md-9">
+            <div>Select an image file: <input type="file" id="fileInput" /></div>
+        </div>
+    </div><br><br>
+    <div class="row" >
+        <div class="col-md-5">
+            <div class="cropArea">
+                <img-crop  image="myImage" result-image="myCroppedImage"></img-crop>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-3">
+            <div>Profile image:</div><br>
+            <div><img ng-src="{{myCroppedImage}}" class="avatar img-circle img-thumbnail"/></div>
+            <br><br>
+            <div style="text-align:center;">
+            <button style="vertical-align: middle;" ng-click="updatePhoto()" class="btn btn-primary"  type="button"> Save Changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

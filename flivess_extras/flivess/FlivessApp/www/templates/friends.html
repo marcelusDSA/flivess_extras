@@ -1,0 +1,16 @@
+<ion-view view-title="Friends">
+  <ion-nav-buttons side="left">
+    <button ng-click="goback()" menu-toggle="left"  class="button icon-left ion-arrow-left-c button-clear button-dark"></button>
+  </ion-nav-buttons>
+
+  <ion-content class="padding">
+    <ion-list ng-repeat="friend in friends">
+    <ion-item menu-close="" class="item-thumbnail-left">
+      <img src={{friend.imgurl}}  width="40%" height="120" style="width: 40%; height: 120px;">
+      <strong> {{friend.fullname}}</strong>
+      <p style="color:darkcyan"> {{friend.username}}</p>
+      <p>{{friend.email}}</p>
+    </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

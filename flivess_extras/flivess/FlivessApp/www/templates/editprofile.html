@@ -1,0 +1,60 @@
+
+
+<ion-header-bar class="bar-subheader item-input-inset" side="left">
+  <button class="button button-clear button-assertive" ng-click="goback()">
+    Cancel
+  </button>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h5 class="font-130 text-center">{{user.username}}</h5>
+</ion-header-bar>
+
+  <ion-content ng-controller="EditProfileCtrl" class="bg-color-stable">
+    <div class="list">
+      <h3 class="padding gotham-medium color-darkgray text-center">Edit profile</h3>
+      <h4 class="padding gotham-medium  text-center">{{user.username}}</h4>
+      <div class="row">
+        <div class="col col-100">
+          <div class="profile-edit-container">
+            <img class="img-rounded clip-top-right" ng-src="{{user.imgurl}}" alt="" width="100%"  ng-click="addPhotos()">
+
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <label class="item item-input">
+        <span class="input-label">Fullname</span>
+        <input type="text" ng-model="user.fullname">
+      </label>
+
+      <label class="item item-input">
+        <span class="input-label">Email</span>
+        <input type="email" ng-model="user.email">
+      </label>
+
+      <label class="item item-input">
+        <span class="input-label">Gender</span>
+        <input type="text" ng-model="user.sex">
+
+      </label>
+
+      <label class="item item-input">
+        <span class="input-label">Weight (kg)</span>
+        <input type="text" ng-model="user.weight">
+      </label>
+
+      <label class="item item-input">
+        <span class="input-label">Height (m)</span>
+        <input type="text" ng-model="user.height">
+      </label>
+
+      <h5 class="padding gotham-medium color-darkgray text-center">Since {{user.created|date:'medium'}}</h5>
+
+      <button ng-click="updateUser()" class="button button-block button-calm text-center">
+        Save
+      </button>
+
+    </div>
+  </ion-content>
+

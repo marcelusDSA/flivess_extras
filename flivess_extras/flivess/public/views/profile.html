@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <link rel="stylesheet" href="../css/profileEdit/style.css">
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+
+        <div class="row">
+            <div class="col-md-9"><h1>{{friend.fullname}}</h1></div>
+            <div class="col-md-3" ng-show="myprofile">
+                <br>
+                <a data-toggle="tooltip modal" type="button" class="btn btn-lg btn-primary" ng-click="showModel()">Send <i class="glyphicon glyphicon-envelope"></i></a>
+                <button data-toggle="tooltip" type="button" class="btn btn-lg btn-success" ng-click="addFriend()" ng-show="show">Follow <span class="fa fa-user-plus" aria-hidden="true"></span></button>
+                <button data-toggle="tooltip" type="button" class="btn btn-lg btn-danger"  ng-click="removeFriend()" confirm="Unfollow {{friend.username}}?" confirm-title="Please {{userlogged.fullname}}, verify" confirm-settings="{size:'sm'}" ng-show="!show">Unfollow <span class="fa fa-user-times" aria-hidden="true"></span></button>
+            </div>
+            <div class="col-md-3" ng-show="!myprofile">
+                <br>
+                <a data-toggle="tooltip modal" type="button" class="btn btn-lg btn-info" href="#/editprofile">Edit <i class="glyphicon glyphicon-edit"></i></a>
+            </div>
+        </div>
+        <div>
+            <div class="row">
+                <div class="col-md-3" align="center">
+                    <img alt="Click edit to upload an image" width="200" height="200" src="{{friend.imgurl}}" class="img-circle img-responsive">
+                    <br>
+                    <div class="row">
+                        <div class="col-xs-6 col-md-4 well well-sm"><b>Tracks</b><br>{{ntracks}}</div>
+                        <div class="col-xs-6 col-md-4 well well-sm"><b >Following</b><br> {{nfollowing}}</div>
+                        <div class="col-xs-6 col-md-4 well well-sm"><b>Followers</b><br> {{nfollowers}}</div>
+                    </div>
+
+                </div>
+
+
+                <div class=" col-md-6">
+                    <table class="table table-user-information">
+                        <tbody>
+                        <tr>
+                            <td><strong>Username</strong> </td>
+                            <td>{{friend.username}}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Full name</strong></td>
+                            <td>{{friend.fullname}}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Email</strong></td>
+                            <td>{{friend.email}}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>City</strong></td>
+                            <td>{{friend.city}}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Age</strong></td>
+                            <td>{{friend.age}}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Gender</strong></td>
+                            <td>{{friend.sex}}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Weight</strong></td>
+                            <td>{{friend.weight}}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Height</strong></td>
+                            <td>{{friend.height}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class=" col-md-3"></div>
+            </div>
+        </div>
+    </div>
+
+    <div  class="col-md-2"></div>
+
+    <div id="tracks" class="panel-group  col-md-8">
+        <div style=" text-align: center;" ng-show="noTracks">
+            <label  >You don't have tracks...</label>
+        </div>
+        <div ng-repeat="route in routes">
+        <div class="panel panel-default">
+            <a href="#/details/{{route._id}}">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-7">
+                        <img border="0" ng-src={{route.img}}>
+                    </div>
+                    <div class="col-md-5">
+                        <table class="table table-striped col-md-5">
+                            <tbody>
+                                <tr>
+                                    <td>Time</td>
+                                    <td>{{route.time}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Distance</td>
+                                    <td>{{route.distance}}</td>
+
+                                </tr>
+                                <tr>
+                                    <td>Average speed</td>
+                                    <td>{{route.avg_speed}} min/Km</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        </div>
+                </div>
+            </div>
+            </a>
+        </div>
+        <div><br><br></div></div>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html ng-app="Flivess">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/following/style.css">
+    <link  rel="stylesheet" href="../bower_components/angular-material/angular-material.css">
+    <style>
+        .btn-circle.btn-lg {
+            width: 70px;
+            height: 70px;
+            font-size: 24px;
+            border-radius: 40px;
+            color: white;
+        }
+        .otro{
+        background: rgba(19, 35, 47, 0.9);
+        opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+<div class="col-md-1"></div>
+<div class="container col-md-10">
+    <div class="text-center">
+    <label ng-show="noFollowing">You don't follow anyone...</label>
+    </div>
+    <div class="row" ng-show="!noFollowing">
+        <table class="table table-hover">
+            <tbody>
+                <tr ng-repeat="u in users"  ng-class-odd="'alt'" style="border: 1px solid grey;"  >
+
+                         <td class="col-md-2" style="cursor:pointer;" ng-click="profile(u.friend.username)">
+                            <img style="cursor:pointer;" ng-click="profile(u.friend.username)" ng-src="{{u.friend.imgurl}}"
+                                 width="80" class="img-responsive img-circle center-block img-thumbnail">
+                         </td>
+
+                        <td class="col-md-3" style="cursor:pointer;" ng-click="profile(u.friend.username)">
+                            Username: <label>{{u.friend.username}}</label><br>
+                            Email: <label> {{u.friend.email}} </label><br>
+                        </td>
+
+                        <td class="col-md-3" style="cursor:pointer;" ng-click="profile(u.friend.username)">
+                            City: <label>{{u.friend.city}}</label>  <br><br>
+                            Gender: <label>{{u.friend.sex}}</label>  <br><br>
+                        </td>
+
+                        <td class="col-md-2" style="cursor:pointer;" ng-click="profile(u.friend.username)">
+                            Since: <label> {{u.friend.created | date:'MM/dd/yyyy'}}</label>  <br><br>
+                            Age: <label> {{u.friend.age}}</label>
+                        </td>
+
+                        <td class="col-md-2">
+
+                            <button ng-click="showConfirm($event, u.friend.username)"   class="btn btn-circle btn-lg otro center-block"><i class="glyphicon glyphicon-minus"></i></button>
+
+                            <!--<button type="button" ng-click="remove(u.friend.username)"  class="btn btn-circle btn-lg transparent navbar-inverse center-block"><i class="glyphicon glyphicon-minus"></i></button>
+                            -->
+                        </td>
+                        <td class="col-md-1"></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+<div class="col-md-1"></div>
+</body>
+</html>

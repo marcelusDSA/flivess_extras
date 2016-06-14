@@ -1,0 +1,111 @@
+.transparent {
+    background: rgba(19, 35, 47, 0.9);
+    opacity: 0.9;
+    z-index: 2050;
+}
+.transparent2 {
+    background: rgba(19, 35, 47, 0.9);
+    opacity: 0.7;
+    z-index: 2050;
+}
+
+
+.typeahead-demo .custom-popup-wrapper {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    background-color: #f9f9f9;
+}
+
+.typeahead-demo .custom-popup-wrapper > .message {
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+    color: #868686;
+}
+
+.typeahead-demo .custom-popup-wrapper > .dropdown-menu {
+    position: relative;
+    float: none;
+    display: block;
+    min-width: 60px;
+    background-color: white;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    z-index: -1;
+}
+
+/* CSS used here will be applied after bootstrap.css */
+
+.dropdown {
+    display:inline-block;
+    margin-left:20px;
+    padding:10px;
+}
+
+
+.glyphicon-bell {
+
+    font-size:1.5rem;
+}
+
+.notifications {
+    min-width: 350px;
+}
+
+.notifications-wrapper {
+    overflow:auto;
+    max-height:250px;
+}
+
+.menu-title {
+    color:red;
+    font-size:1.5rem;
+    display:inline-block;
+}
+
+.glyphicon-circle-arrow-right {
+    margin-left:10px;
+}
+
+.dropdown-menu.divider {
+    margin:5px 0;
+}
+
+.item-title {
+    font-size:1.3rem;
+    color:#000;
+
+}
+
+.notifications a.content {
+    text-decoration:none;
+    background:#ccc;
+
+}
+
+.notification-item {
+    padding:5px;
+    margin:5px;
+    background:#ccc;
+    border-radius:4px;
+}
+
+
+.noti_bubble {
+    position:absolute;    /* This breaks the div from the normal HTML document. */
+    top: -6px;
+    right: +2px;
+    padding:3px 5px 3px 5px;
+    background-color:red; /* you could use a background image if you'd like as well */
+    color:white;
+    font-weight:bold;
+    font-size:0.7em;
+
+    /* The following is CSS3, but isn't crucial for this technique to work. */
+    /* Keep in mind that if a browser doesn't support CSS3, it's fine! They just won't have rounded borders and won't have a box shadow effect. */
+    /* You can always use a background image to produce the same effect if you want to, and you can use both together so browsers without CSS3 still have the rounded/shadow look. */
+    border-radius:30px;
+}

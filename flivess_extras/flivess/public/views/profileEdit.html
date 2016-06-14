@@ -1,0 +1,99 @@
+<div class="container">
+    <div class="col-md-6">
+    <h1 class="page-header">Edit Profile</h1>
+    </div>
+    <div class="col-md-6">
+        <h1 class="page-header">{{user.username}}</h1>
+    </div>
+    <div class="row">
+
+        <!-- left column -->
+        <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="text-center">
+                <img ng-src="{{user.imgurl}}" class="avatar img-circle img-thumbnail" width="200" height="200" alt="avatar"></img>
+
+                <div><br><br>
+                    <a href="#/edit_foto" data-toggle="tooltip modal" type="button" class="btn btn-lg btn-info"><i class="fa fa-picture-o" aria-hidden="true" ></i> EDIT PHOTO</a>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- edit form column -->
+        <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
+            <!--<h3>Personal info</h3>-->
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Full name:</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" ng-model="user.fullname" type="text">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Email:</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" ng-model="user.email" type="text">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Age:</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" ng-model="user.age" type="text">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">City:</label>
+                    <div class="col-lg-8">
+                        <input class="form-control" ng-model="user.city" type="text">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Gender:</label>
+                    <div class="col-lg-8">
+                        <label class="col-lg-3 control-label">Male
+                        <input type="radio" ng-model="user.sex" value="Male">
+                        </label>&nbsp
+                        <label class="col-lg-3 control-label">Female
+                        <input type="radio" ng-model="user.sex" value="Female">
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Weight:</label>
+                    <div class="col-md-8">
+                        <select ng-name="n" ng-options="n for n in range_weight(0,200)" class="form-control" ng-model="user.weight">
+                            <option value="">{{user.weight}} Kg</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Height:</label>
+                    <div class="col-md-8">
+                        <select  ng-name="n" ng-options="n for n in range_weight(100,300)" class="form-control" ng-model="user.height">
+                            <option value="">{{user.height}} cm</option>
+                        </select>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Password:</label>
+                    <div class="col-md-8">
+                        <input class="form-control" ng-model="user.password" type="password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Confirm password:</label>
+                    <div class="col-md-8">
+                        <input class="form-control" ng-model="user.password" type="password">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label"></label>
+                        <a ng-click="updateUser()" class="btn btn-primary"  type="button"> Save Changes</a>
+                        <a href="#/home" class="btn btn-default" type="button"> Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

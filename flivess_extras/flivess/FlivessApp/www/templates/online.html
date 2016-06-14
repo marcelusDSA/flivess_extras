@@ -1,0 +1,21 @@
+<ion-view title="Online">
+  <ion-nav-buttons side="left">
+    <button ng-click="toSearch()" menu-toggle="left" class="button button-icon icon ion-ios-search-strong"></button>
+  </ion-nav-buttons>
+
+  <ion-nav-buttons side="right">
+    <button ng-click="toTrack()" class="button button-dark icon ion-ios-plus-outline"></button>
+  </ion-nav-buttons>
+
+  <ion-content padding="'true'" class="has-header">
+    <ion-list  ng-repeat="user in online">
+    <ion-item menu-close="" class="item-thumbnail-left" ng-click="gochat(user)">
+      <img src={{user.imgurl}}  width="40%" height="120" style="width: 40%; height: 120px;">
+      <strong> {{user.fullname}}</strong>
+      <p>{{user.username}} &bull; {{user.email}}</p>
+      <br>
+      <img style="float:left;margin-right:5px;"src="./img/online.png"> Online
+    </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

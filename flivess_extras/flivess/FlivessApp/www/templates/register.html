@@ -1,0 +1,44 @@
+
+<ion-view title="Register">
+  <ion-content overflow-scroll="false" padding="'true'" class="has-header" style="background:  center; background-size: cover;">
+    <form class="list">
+      <ion-list>
+        <label class="item item-input" name="username" style="background-color: white; opacity: 0.35;">
+          <span class="input-label">Username</span>
+          <input type="text" ng-model="user.username">
+        </label>
+        <label class="item item-input" name="fullname" style="background-color: white; opacity: 0.35;">
+          <span class="input-label">Fullname</span>
+          <input type="text" ng-model="user.fullname">
+        </label>
+        <label class="item item-input" name="mail" style="background-color: white; opacity: 0.35;">
+          <span class="input-label">Email</span>
+          <input type="email" ng-model="user.email">
+        </label>
+        <label class="item item-input" name="password" style="background-color: white; opacity: 0.35;">
+          <span class="input-label">Password</span>
+          <input type="password" placeholder="Password" ng-model="user.password">
+        </label>
+        <label class="item item-input" name="confirm_password" style="background-color: white; opacity: 0.35;">
+          <span class="input-label">Confirm</span>
+          <input type="password" placeholder="Confirmar Password" ng-model="data.confirma">
+        </label>
+        <label class="item item-input" name="sex" style="background-color: white; opacity: 0.35;">
+          <span class="input-label">Sex</span>
+          <input type="text" ng-model="user.sex">
+        </label>
+        <label class="item item-input" name="altura" style="background-color: white; opacity: 0.35;">
+          <span class="input-label">Height</span>
+          <input type="text" ng-model="user.height">
+        </label>
+        <label class="item item-input" name="weight" style="background-color: white; opacity: 0.35;">
+          <span class="input-label">Weight</span>
+          <input type="text" ng-model="user.weight">
+        </label>
+
+      </ion-list>
+      <div class="spacer" style="width: 300px; height: 5px;"></div>
+      <a class="button button-block button-calm" ng-click="register()">Sign up</a>
+    </form>
+  </ion-content>
+</ion-view>

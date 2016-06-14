@@ -1,0 +1,35 @@
+
+
+<ion-modal-view class="transparente" style="width: 100%; height: 30%; top: 0%; left: 0%; right: 0%; bottom: 60%;">
+  <ion-header-bar>
+    <h1 class="title">Route detail</h1>
+  </ion-header-bar>
+  <ion-content>
+    <div class="bar bar-header bar-dark">
+      <h1 class="title">{{modalname}}</h1>
+      <p style="color: #00b3ee" am-time-ago="modalcreated"></p>
+    </div>
+    <br>
+    <br>
+    <br>
+
+    <div class="text-center"> <h1 class="color-gray">{{modalpos+1}} th</h1></div>
+
+    <br>
+
+
+    <div class="container text-center">
+      <img height="100%" width="100%"  ng-src="{{modalimage}}">
+    </div>
+    <br>
+    <br>
+    <div class="text-center ">
+      <i class="icon button ion-ios-stopwatch"></i><h2 style="color: #11c1f3">{{modaltime}}</h2>
+      <br>
+      <i class="button icon ion-ios-pulse-strong"></i> <h3 style="color: #00b3ee">{{modalspeed}} km/h</h3>
+    </div>
+
+
+  </ion-content>
+</ion-modal-view>
+

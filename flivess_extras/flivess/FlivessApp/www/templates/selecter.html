@@ -1,0 +1,35 @@
+
+<ion-header-bar class="bar-subheader item-input-inset" side="left">
+  <button class="button button-icon icon ion-ios-arrow-left" ng-click="goback()">
+  </button>
+  <i class="text-center button icon button-icon ion-ios-glasses"></i>&nbsp;<h2 class="font-130 text-center">And now, what?</h2>
+</ion-header-bar>
+
+<ion-content>
+  <br>
+  <div class="text-center"><h3>Select your plan</h3></div>
+  <div class="card">
+    <div  class="item item-text-wrap text-center">
+      Create a new route and let your friends beat your times.
+      <button ng-click="toTrack()" class="button button-block button-balanced">
+        New route
+      </button>
+    </div>
+  </div>
+  <div class="card">
+    <div class="item item-text-wrap text-center">
+      Find routes near to you and try to improve the stats.
+      <button ng-click="toNearRoutes(numberange)" class="button button-block button-royal">
+        Near routes
+      </button>
+      <div class="item range range-positive">
+        <i class="icon ion-ios-minus"></i>
+        <input  type="range" name="distance" min="0" max="500" value="{{numberange}}" ng-model="numberange">
+        <i class="icon ion-ios-plus"></i>
+      </div>
+      <br>
+      {{numberange}} m <br> <label class="color-gray">Select a range</label>
+    </div>
+  </div>
+
+</ion-content>

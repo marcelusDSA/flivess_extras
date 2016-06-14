@@ -1,0 +1,56 @@
+
+<ion-view>
+  <ion-content  class="padding">
+    <div class="bar bar-header bar-royal">
+      <h1 class="title">Tracking</h1>
+    </div>
+    <br>
+    <br>
+    <br>
+    <!-- <button class="button button-block button-calm" ng-click="start()" ng-show="boton_start">Start</button>-->
+
+    <div ng-click="start()" ng-show="boton_start" class="text-center"><i style="color: #4CAF50"  class="icon ion-record larger"></i><br><label class="color-gray" style="font-size: 50px">Start</label></div>
+
+
+
+    <!--<button class="button button-block button-calm" ng-click="stop_track();"  ng-show="boton_stop">Stop</button>-->
+
+    <div ng-show="boton_stop" class="text-center">
+      <br>
+      <p style="font-size: 40px" class="color-gray">Tracking...</p>
+      <ion-spinner icon="ripple"></ion-spinner>
+      <hr>
+      <div ng-click="stop_track();"   class="text-center"><i style="color: #ef473a"  class="icon ion-stop larger"></i><br><label class="color-gray" style="font-size: 50px">Stop</label></div>
+    </div>
+
+    <br><br><br>
+    <div class="text-center"><p class="color-gray"  >Press <i class="icon ion-record"></i> to start tracking and <i class="icon ion-stop"></i> to stop. </p></div>
+
+    <button class="button button-block button-stable" ng-click="volver()" ng-show="boton_cancelar">Cancel</button>
+    <!--<button class="button button-block button-calm" ng-click="send()" ng-show="boton_envio">Guardar</button>-->
+
+  </ion-content>
+</ion-view>
+
+<!--<ion-view title="Bienvenido a Flivess">
+  <ion-content  class="padding">
+    <h1>Hola</h1>
+    <p>Estamos trabajando en el tracking</p>
+
+    <button class="button button-block button-calm" ng-click="start()" ng-show="boton_start">Start</button>
+    <ion-list>
+      <ion-item name="parameters" class="padding">
+        <p>{{tracking_state}}</p>
+        <p>{{distancia}}</p>
+        <p>{{tiempo}}</p>
+        <p>{{velocidad}}</p>
+      </ion-item>
+    </ion-list>
+    <button class="button button-block button-calm" ng-click="stop_track();"  ng-show="boton_stop">Stop</button>
+    <br><br><br>
+    <button class="button button-block button-calm" ng-click="volver()" ng-show="boton_cancelar">Cancel</button>
+    <button class="button button-block button-calm" ng-click="send()" ng-show="boton_envio">Guardar</button>
+
+
+  </ion-content>
+</ion-view>-->

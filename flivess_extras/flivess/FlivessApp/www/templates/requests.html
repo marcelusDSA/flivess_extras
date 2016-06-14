@@ -1,0 +1,17 @@
+<ion-view view-title="Requests">
+  <ion-nav-buttons side="left">
+    <button ng-click="goback()" menu-toggle="left"  class="button icon-left ion-arrow-left-c button-clear button-dark"></button>
+  </ion-nav-buttons>
+
+  <ion-content padding="'true'" class="has-header">
+    <ion-list ng-click="profile(user)"" ng-repeat="user in users">
+      <ion-item menu-close="" class="item-thumbnail-left">
+        <img src={{user.imgurl}}  width="40%" height="120" style="width: 40%; height: 120px;">
+        <strong> {{user.fullname}}</strong>
+        <p style="color:darkcyan"> {{user.username}}</p>
+        <p>{{user.email}}</p>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  </ion-view>
+

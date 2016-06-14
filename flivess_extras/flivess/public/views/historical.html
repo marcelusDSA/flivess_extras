@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link  rel="stylesheet" href="../bower_components/angular-material/angular-material.css">
+</head>
+<body>
+<div class="col-md-2"></div>
+
+<div class="col-md-1">
+    <table class="table" ng-show="!noHistorical">
+        <thead>
+        <tr>
+            <th style="color: transparent"> Delete</th>
+        </tr>
+        </thead>
+        <tbody >
+        <tr ng-repeat="route in routes">
+            <td>
+                <div class="col-md-6"></div>
+                <div class="col-md-6">
+                <input type="checkbox" ng-model='route.selected'>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button class="btn" ng-click="showConfirm($event)">Delete <br> seleccion</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="col-md-7">
+    <div class="text-center">
+    <label  ng-show="noHistorical">You haven't any track...</label>
+    </div>
+    <table class="table table-striped header-fixed" ng-show="!noHistorical">
+        <thead>
+        <tr>
+            <th>Date</th>
+            <th>Distance</th>
+            <th>Time</th>
+            <th>Average speed</th>
+        </tr>
+        </thead>
+
+        <tbody style="border: 1px solid grey;" ng-repeat="route in routes">
+        <tr ng-click="details(route._id)" style="cursor: pointer;">
+            <td >{{route.title|date:"dd/MM/yyyy 'at' h:mma"}}</td>
+
+            <td>{{route.distance}}</td>
+            <td>{{route.time}}</td>
+            <td>{{route.avg_speed}} min/Km</td>
+        </tr>
+
+        </tbody>
+
+    </table>
+</div>
+<div class="col-md-2"></div>
+</body>
+</html>

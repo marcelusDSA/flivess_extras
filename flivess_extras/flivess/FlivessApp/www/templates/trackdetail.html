@@ -1,0 +1,102 @@
+<ion-header-bar class="bar-subheader item-input-inset" side="left">
+  <button class="button button-icon icon ion-ios-arrow-left" ng-click="goback()">
+  </button>
+  <i class="text-center button icon button-icon ion-map"></i>&nbsp;<h2 class="font-130 text-center">Details</h2>
+</ion-header-bar>
+
+<ion-content>
+
+
+  <div class="bar bar-header bar-positive">
+    <h1 class="title">Track details</h1>
+  </div>
+  <br>
+  <br>
+
+  <div class="list card">
+
+    <div class="item item-avatar">
+      <img src="http://images.enstarz.com/data/images/full/72756/rihanna.jpg?w=580">
+      <h2>{{track.username}}</h2>
+      <p am-time-ago="track.created"></p><p><i class="icon ion-pinpoint"></i>{{addressTop}}</p>
+    </div>
+
+
+
+
+    <div class="row text-center">
+      <div class="col col-90"><a class="item item-icon-left ">
+        <i class="icon ion-ios-navigate-outline"></i>
+        {{track.distance}}
+      </a></div>
+      <div class="col col-10"></div>
+
+    </div>
+    <div ng-if="type=='profile'" class="row text-center">
+      <div class="col col-90"><a  class="item item-icon-left">
+        <i class="icon ion-ios-stopwatch-outline"></i>
+        {{track.time}}
+      </a></div>
+      <div class="col col-10"></div>
+
+    </div>
+
+    <div ng-if="type=='profile'" class="row text-center">
+      <div class="col col-90"><a class="item item-icon-left">
+        <i class="icon ion-ios-pulse"></i>
+        {{track.avg_speed}} km/h
+      </a></div>
+      <div class="col col-10"></div>
+
+    </div>
+
+
+    <div class="row text-center">
+      <div class="col col-90"><a class="item item-icon-left">
+        <i class="icon ion-ios-location-outline"></i>
+        {{addressList}}
+      </a></div>
+
+    </div>
+    <div class="col col-10"></div>
+
+  </div>
+
+  <div class="item item-text-wrap" id="map" data-tap-disabled="true"></div>
+
+  <div ng-if="type=='near'" class="card">
+    <div class="item item-text-wrap">
+      <button ng-click="toTracking(track._id,track.id_comun,track.distance)" class="button button-block button-royal">
+        Try it now!
+      </button>
+    </div>
+  </div>
+
+  <br>
+  <div class="row text-center">
+    <div  class="bar  bar-energized text-center">
+      <h1 class="title"><i class=" icon ion-podium"></i> Ranking</h1>
+    </div>
+
+  </div>
+  <br>
+
+  <div class="list card">
+    <div ng-if="position!=0" class="text-center"> <p class="color-gray"  >You are in the <label>{{position}} th</label> position</p> </div>
+    <div ng-if="position=0" class="text-center"> <p class="color-gray" >You are not in the ranking</p> </div>
+
+
+
+    <a on-hold="onHold(user.pointsurl,user.username,user.time,user.created,user.avg_speed,user.distance,$index)" on-release="onRelease()" ng-repeat="user in ranking" class="item item-icon-left">
+      <i ng-if="$index==0" style="color: gold" class="icon ion-trophy"></i>
+      <i ng-if="$index==1" style="color: silver" class="icon ion-ribbon-a"></i>
+      <i ng-if="$index==2" style="color: sandybrown" class="icon ion-ribbon-b"></i>
+      {{user.username}} <p class="color-gray"  >{{user.time}}</p>
+
+    </a>
+
+
+  </div>
+
+
+</ion-content>

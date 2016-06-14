@@ -1,0 +1,100 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+
+
+<ion-view id="userMessagesView" cache-view="false" view-title="<i class='icon ion-chatbubble user-messages-top-icon'></i> <div class='msg-header-username'>{{userC}}</div>">
+
+
+  <ion-content has-bouncing="true" class="has-header has-footer"  delegate-handle="userMessageScroll">
+
+    <div  ng-repeat="message in messages" class="message-wrapper">
+
+
+
+      <div ng-if="userLogged.username !== message.sender">
+
+        <img ng-click="viewProfile(conversationWith.username)" class="profile-pic left"
+             ng-src="{{conversationWith.imgurl}}" />
+
+        <div class="chat-bubble left">
+
+          <div class="message" ng-bind-html="message.text">
+          </div>
+
+          <div class="message-detail">
+                              <span ng-click="viewProfile(message)"
+                                    class="bold"><!--{{conversationWith.username}}--></span>
+            <span class="bold" am-time-ago="message.createdAt"></span>
+
+          </div>
+
+        </div>
+      </div>
+
+      <div ng-if="userLogged.username === message.sender">
+
+        <img ng-click="viewProfile(message)" class="profile-pic right"
+             ng-src="{{userLogged.imgurl}}"/>
+
+        <div class="chat-bubble right">
+
+          <div class="message" ng-bind-html="message.text" >
+          </div>
+
+          <div class="message-detail">
+                              <span ng-click="viewProfile(message)"
+                                    class="bold"><!--{{conversationWith.username}}--></span>
+            <span class="bold" am-time-ago="message.createdAt"></span>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="cf"></div>
+
+    </div>
+  </ion-content>
+
+</ion-view>
+
+
+<form id="footer-input">
+  <ion-footer-bar keyboard-attach class="item-input-inset">
+    <label class="item-input-wrapper">
+      <i class="icon  placeholder-icon"></i>
+      <input type="text" placeholder="Send a message..." ng-model="message.text">
+    </label>
+    <a class="button button-clear" ng-click="sendMessage(conversationWith.username)">
+      <i class="icon ion-ios-paperplane"></i>
+    </a>
+  </ion-footer-bar>
+</form>
+
+
+
+
+
+
+
+
+
+<!--
+<ion-view view-title="Mensajes">
+  <ion-content class="padding">
+    <ion-list ng-repeat="msg in msgs">
+        <img ng-src="https://pbs.twimg.com/profile_images/452381666649313280/1Y_pVkyh.jpeg" style="width: 64px; height: 64px">
+      <p ng-repeat="sender in msg">
+      <strong>{{sender.username}}</strong>
+    </p>
+      {{msg.text}}
+    </p>
+      <input type="text" placeholder="Text" ng-model="message.text">
+    </ion-list>
+  </ion-content>
+</ion-view>
+-->
